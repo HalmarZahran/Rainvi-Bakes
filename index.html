@@ -30,12 +30,12 @@
 
     header {
       text-align: center;
-      padding: 30px 20px 10px 20px;
+      padding: 30px 15px 15px 15px;
       animation: fadeInUp 1s ease forwards;
     }
 
     header h1 {
-      font-size: 2.5em;
+      font-size: 2.2em;
       color: #b22222;
       margin: 0;
     }
@@ -44,14 +44,17 @@
       font-style: italic;
       color: #8b0000;
       margin-top: 5px;
+      font-size: 1em;
     }
 
+    /* 🔹 Menu Grid */
     .menu {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 20px;
       padding: 20px;
-      justify-items: center;
+      max-width: 1000px;
+      margin: auto;
     }
 
     .item {
@@ -60,13 +63,9 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       text-align: center;
       padding: 15px;
-      width: 200px;
-      opacity: 0;
-      transform: translateY(40px);
       animation: fadeInUp 0.8s ease forwards;
     }
 
-    /* 🔹 Delay animasi tiap item biar berurutan */
     .item:nth-child(1) { animation-delay: 0.2s; }
     .item:nth-child(2) { animation-delay: 0.4s; }
     .item:nth-child(3) { animation-delay: 0.6s; }
@@ -80,10 +79,13 @@
     }
 
     .item img {
-      width: 100px;
-      height: 100px;
+      width: 100%;
+      max-width: 120px;
+      height: 120px;
       object-fit: cover;
       border-radius: 12px;
+      margin: auto;
+      display: block;
       transition: transform 0.3s ease;
     }
 
@@ -94,12 +96,28 @@
     .item h3 {
       margin-top: 12px;
       color: #a52a2a;
+      font-size: 1.1em;
+      position: relative;
+      display: inline-block;
+      padding-bottom: 6px;
+    }
+
+    /* 🔹 Garis merah di bawah nama produk */
+    .item h3::after {
+      content: "";
+      display: block;
+      width: 50px;
+      height: 3px;
+      background: #b22222;
+      margin: 6px auto 0 auto;
+      border-radius: 2px;
     }
 
     .price {
       margin: 8px 0;
       font-weight: bold;
       color: #444;
+      font-size: 0.95em;
     }
 
     .btn-order {
@@ -126,25 +144,33 @@
       background: #f3e9e5;
       color: #5a1a1a;
       animation: fadeInUp 1s ease forwards;
+      font-size: 0.9em;
     }
 
-    /* 🔹 Responsif untuk HP */
+    /* 🔹 Responsif */
     @media (max-width: 480px) {
       .menu {
         grid-template-columns: repeat(2, 1fr);
       }
-
-      .menu .item:last-child {
-        grid-column: 1 / -1;
-        justify-self: center;
+      .item img {
+        max-width: 100px;
+        height: 100px;
+      }
+      header h1 {
+        font-size: 1.8em;
+      }
+      header p {
+        font-size: 0.9em;
       }
     }
 
-    /* 🔹 Kembalikan normal untuk desktop */
-    @media (min-width: 481px) {
-      .menu .item:last-child {
-        grid-column: auto;
-        justify-self: auto;
+    @media (max-width: 360px) {
+      .menu {
+        grid-template-columns: 1fr;
+      }
+      .item img {
+        max-width: 90px;
+        height: 90px;
       }
     }
   </style>
