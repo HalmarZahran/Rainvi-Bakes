@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rainvi Bakes | Mille Crepes</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Playfair Display', serif;
+      background: linear-gradient(to bottom, #fdf6f2, #fff6f0);
+      margin: 0;
+      padding: 0;
+      color: #5a1a1a;
+      overflow-x: hidden;
+    }
+
+    /* 🔹 Animasi */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    header {
+      text-align: center;
+      padding: 30px 20px 10px 20px;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      color: #b22222;
+      margin: 0;
+    }
+
+    header p {
+      font-style: italic;
+      color: #8b0000;
+      margin-top: 5px;
+    }
+
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      justify-items: center;
+    }
+
+    .item {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      padding: 15px;
+      width: 200px;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    /* 🔹 Delay animasi tiap item biar berurutan */
+    .item:nth-child(1) { animation-delay: 0.2s; }
+    .item:nth-child(2) { animation-delay: 0.4s; }
+    .item:nth-child(3) { animation-delay: 0.6s; }
+    .item:nth-child(4) { animation-delay: 0.8s; }
+    .item:nth-child(5) { animation-delay: 1s; }
+
+    .item:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      transition: 0.3s;
+    }
+
+    .item img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 12px;
+      transition: transform 0.3s ease;
+    }
+
+    .item img:hover {
+      transform: scale(1.1);
+    }
+
+    .item h3 {
+      margin-top: 12px;
+      color: #a52a2a;
+    }
+
+    .price {
+      margin: 8px 0;
+      font-weight: bold;
+      color: #444;
+    }
+
+    .btn-order {
+      display: inline-block;
+      background: #b22222;
+      color: white;
+      padding: 12px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 1.1em;
+      font-weight: bold;
+      animation: pulse 2.5s infinite;
+      transition: background 0.3s;
+    }
+
+    .btn-order:hover {
+      background: #8b0000;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 20px;
+      background: #f3e9e5;
+      color: #5a1a1a;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    /* 🔹 Responsif untuk HP */
+    @media (max-width: 480px) {
+      .menu {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .menu .item:last-child {
+        grid-column: 1 / -1;
+        justify-self: center;
+      }
+    }
+
+    /* 🔹 Kembalikan normal untuk desktop */
+    @media (min-width: 481px) {
+      .menu .item:last-child {
+        grid-column: auto;
+        justify-self: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Mille Crepes</h1>
+    <p>Where happiness is Homemade</p>
+  </header>
+
+  <section class="menu">
+    <div class="item">
+      <img src="tiramisu.png" alt="Chocolate">
+      <h3>Chocolate</h3>
+      <p class="price">15K</p>
+    </div>
+    <div class="item">
+      <img src="chocolate.png" alt="Tiramisu">
+      <h3>Tiramisu</h3>
+      <p class="price">15K</p>
+    </div>
+    <div class="item">
+      <img src="matcha.png" alt="Matcha">
+      <h3>Matcha</h3>
+      <p class="price">15K</p>
+    </div>
+    <div class="item">
+      <img src="strawberry.png" alt="Strawberry">
+      <h3>Strawberry</h3>
+      <p class="price">15K</p>
+    </div>
+    <div class="item">
+      <img src="mangga.png" alt="Mangga">
+      <h3>Mangga</h3>
+      <p class="price">15K</p>
+    </div>
+  </section>
+
+  <div style="text-align:center; margin-bottom:30px;">
+    <a class="btn-order" href="https://wa.me/6285870061527?text=Halo%20saya%20mau%20order%20Mille%20Crepes" target="_blank">
+      Order via WhatsApp
+    </a>
+  </div>
+
+  <footer>
+    <p>📍 Free Delivery area Graha Cikarang</p>
+    <p>☎️ Order via WA: 0858 7006 1527</p>
+    <p>⚡ Stok terbatas, siapa cepat dia dapat!</p>
+  </footer>
+</body>
+</html>
